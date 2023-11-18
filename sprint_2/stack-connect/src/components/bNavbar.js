@@ -16,7 +16,7 @@ function bNavbar() {
   return (
     <Navbar collapseOnSelect expand="lg" bg="myBlue" variant="dark">
       <Container>
-        <Navbar.Brand href="#home">
+        <Navbar.Brand href="/">
           <img
             className="logo"
             alt="Stack"

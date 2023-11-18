@@ -1,3 +1,6 @@
+import React from "react";
+import { Link } from "react-router-dom";
+
 function Hero() {
     return (
       <section className="hero" id="home">
@@ -6,9 +9,9 @@ function Hero() {
           <p>
             Discover Job opportunities
           </p>
-          <a href="#signup" className="btn hero-btn">
+          <Link to="/register" className="btn hero-btn">
             Sign Up
-          </a>
+          </Link>
         </div>
       </section>
     );
