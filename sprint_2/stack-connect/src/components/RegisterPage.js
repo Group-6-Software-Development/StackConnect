@@ -29,14 +29,14 @@ const RegisterPage = () => {
     return (
         <div className="register-page">
             <div className="register-header">
-            <h2 className="register-title">Register</h2>
             <form className="register-form" onSubmit = {handleSubmit}>
-                <label className="register-label">
-                    username:
+            <h2 className="register-title">Register</h2>
+                <label className="first-register-label">
+                    Username:
                     <input 
                     type="text" 
                     name="username" 
-                    placeholder="Username" 
+                    placeholder="" 
                     value={formData.username} 
                     onChange={handleChange} 
                     className="register-input"
@@ -45,10 +45,11 @@ const RegisterPage = () => {
                 </label>
                 <br/>
                 <label className="register-label">
+                    Email:
                     <input 
                     type="text" 
                     name="email" 
-                    placeholder="Email" 
+                    placeholder="" 
                     value={formData.email} 
                     onChange={handleChange} 
                     className="register-input"
@@ -57,10 +58,11 @@ const RegisterPage = () => {
                 </label>
                 <br/>
                 <label className="register-label">
+                    Password:
                     <input 
                     type="password" 
                     name="password" 
-                    placeholder="Password" 
+                    placeholder="" 
                     value={formData.password} 
                     onChange={handleChange} 
                     className="register-input"

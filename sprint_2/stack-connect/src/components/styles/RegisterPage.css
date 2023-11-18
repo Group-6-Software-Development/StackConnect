@@ -1,45 +1,71 @@
 /* Register.css file */
+.register-page {
+    padding: 20px;
+    background-image: url('../../images/heroPhoto.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh; /* Ensure the background covers the entire viewport height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
 .register-container {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
+  background-color: hwb(193 9% 3% / 0.336);
 }
 
 .register-title {
-  font-size: 2rem;
-  margin-bottom: 1rem;
+  font-size: 20px;
+  margin-bottom: 0px;
+  text-align: center;
+  margin-top: 0px;
+  margin-right: 190px;
 }
 
 .register-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 30%;
+  width: 300px;
+  padding: 20px;
+  background-color: #5DA9E9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: auto;
+  margin-top: 20px;
 }
+.first-register-label {
+    display: block;
+    margin-bottom: -20px;
+    margin-top: 30px;
+    font-size: 14px;
+  }
 
 .register-label {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
+  display: block;
+  margin-bottom: -20px;
+  margin-top: 0px;
+  font-size: 14px;
 }
 
 .register-input {
   width: 100%;
-  height: 2rem;
-  margin-bottom: 1rem;
+  padding: 8px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
 }
 
 .register-button {
-  width: 100%;
-  height: 2rem;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  background-color: #5682d2;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 .register-button:hover {
-  background-color: #f5f5f5;
-  color: #000;
+  background-color: #4565a0;
+  
 }
