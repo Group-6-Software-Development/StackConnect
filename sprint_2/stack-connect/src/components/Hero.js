@@ -10,7 +10,7 @@ function Hero() {
             Discover Job opportunities
           </p>
           <Link to="/register" className="btn hero-btn">
-            Sign Up
+            Register Now
           </Link>
         </div>
       </section>
