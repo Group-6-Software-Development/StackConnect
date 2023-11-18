@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import { Link } from "react-router-dom";
 import './styles/RegisterPage.css';
 
 const RegisterPage = () => {
@@ -71,6 +72,11 @@ const RegisterPage = () => {
                 </label>
                 <br/>
                 <button type="submit" className="register-button">Register</button>
+                <p className='already-user-text'>
+                    Already user ?
+                    <Link to="/sign-in" className="sign-in-link-button">
+                    Sign In
+                    </Link></p>
             </form>
         </div>
     </div>
