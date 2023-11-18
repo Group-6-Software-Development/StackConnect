@@ -46,7 +46,7 @@ function bNavbar() {
           </Form>
           <Nav className="ms-auto">
             <Nav.Link href="#jobs">Jobs</Nav.Link>
-            <Nav.Link href="#login">Login</Nav.Link>
+            <Nav.Link href="sign-in">Login</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

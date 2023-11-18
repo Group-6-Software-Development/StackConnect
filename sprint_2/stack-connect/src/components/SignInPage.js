@@ -6,7 +6,7 @@ const SignInPage = () => {
         <div className="sign-in-page">
             <form className="sign-in-form">
             <h2 className="sign-in-title">Sign In</h2>
-                <label className="sign-in-label" htmlFor="email">
+                <label className="first-sign-in-label" htmlFor="email">
                     Email:
                 </label>
                 <input
