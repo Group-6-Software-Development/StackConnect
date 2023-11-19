@@ -172,6 +172,7 @@ const JobPostPage = () => {
                     Job Description:
                 </label>
                 </label>
+                <label className="join-jt-desc-inputs">
                 <select id="job-type" className="job-type-input" multiple onChange={handleSelectJobTypeChange} value={selectedJobType}>
                     <option value = "full-time">Full-time</option>
                     <option value = "part-time">Part-time</option>
@@ -195,6 +196,8 @@ const JobPostPage = () => {
                     className="job-description-input"
                     required
                 />
+                </label>
+                <br/>
                 <button type="submit" className="add-job-button">
                     + Add Job 
                 </button>
