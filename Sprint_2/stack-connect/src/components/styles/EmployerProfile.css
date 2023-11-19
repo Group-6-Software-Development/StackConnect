@@ -1,36 +1,38 @@
-/* Main container holding the background image */
-.App {
+.employer-profile-page {
+  background-image: url("../../images/heroPhoto.jpg");
+  background-size: cover;
+  background-position: center;
   min-height: 100vh;
-  background: url("../../images/heroPhoto.jpg") center/cover no-repeat;
+  display: flex;
+  flex-wrap: nowrap;
 }
 
-/* Container holding employee profile */
-.employee-profile {
-  margin-top: 2rem;
+.employer-profile {
+  margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
   display: flex;
-  width: 45%;
-  height: 53rem;
   flex-direction: column;
   align-items: center;
+  width: 45%;
+  height: 53rem;
   flex-shrink: 0;
   border-radius: 8px;
-  border: 1px solid #e0e0e0; /* Lighter border color */
-  background: #ffffff; /* White background */
+  border: 1px solid #e0e0e0;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  /* Employer profile background color */
+  background: lightgray;
 }
 
-/* Header section with employee name */
-.employee-profile-header {
-  width: 100%;
-  display: flex;
+.employer-profile-header {
+  margin: 5px;
+  display: inline-flex;
   align-items: center;
   padding: 15px;
-  background-color: #f8f8f8; /* Lighter gray background */
 }
 
-.employee-profile-header img {
+.employer-profile-header img {
   width: 150px;
   height: 150px;
   border-radius: 50%;
@@ -38,7 +40,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.employee-name {
+.employer-name {
   font-size: 28px;
   font-weight: 600;
   margin-left: 20px;
@@ -46,20 +48,18 @@
   margin-bottom: auto;
 }
 
-/* Employee profile content section */
-.employee-profile-contents {
+.employer-profile-contents {
   width: 100%;
   padding: 15px;
 }
 
-/* Styles for open job listings */
 .open-jobs-body {
   width: 100%;
   padding: 10px;
 }
 
 .open-jobs-body h4,
-.employee-profile-about-us h4 {
+.employer-profile-about-us h4 {
   font-size: 18px;
   font-weight: 600;
   margin: 8px 0;
@@ -80,29 +80,32 @@
   align-items: center;
   flex-shrink: 0;
   border-radius: 8px;
-  border: 1px solid #e0e0e0; /* Lighter border color */
-  background-color: #ffffff; /* White background */
+  border: 1px solid #e0e0e0;
   transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+
+  /* Single job listings background color */
+  background-color: #efefef;
 }
 
 .open-jobs li:hover {
   transform: scale(1.03);
-  background-color: #dceef3; /* Slightly bluish hover color */
+
+  /* Single job listings background color when hovered over */
+  background-color: #dceef3;
 }
 
-/* Employee about us section */
-.employee-profile-about-us {
+.employer-profile-about-us {
   width: 100%;
   margin-top: 15px;
   margin-bottom: 10px;
 }
 
-.employee-profile-about-us h4 {
+.employer-profile-about-us h4 {
   font-size: 18px;
   font-weight: 600;
   margin: 8px 0;
 }
 
-.employee-profile-about-us p {
+.employer-profile-about-us p {
   padding: 0 20px;
 }

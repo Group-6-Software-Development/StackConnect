@@ -1,0 +1,8 @@
+.developer-profile-page {
+  background-image: url("../../images/heroPhoto.jpg");
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: nowrap;
+}
