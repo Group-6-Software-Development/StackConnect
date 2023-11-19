@@ -2,7 +2,7 @@ export const availableJobs = [
   {
     company: "Tech Innovators",
     aboutUs:
-      "Nulla proident laboris occaecat minim qui amet deserunt excepteur fugiat labore voluptate amet aliqua tempor. Esse incididunt aliquip esse commodo eiusmod enim labore laborum in est do sit esse. Ex est culpa occaecat fugiat.",
+      "At Tech Innovators, we are a trailblazing team committed to pioneering technological advancements that redefine industry standards. Our diverse and dynamic environment fosters innovation, encouraging each member to push boundaries and unleash their full potential. As a company at the forefront of innovation, we offer a wide array of opportunities across various domains, from frontend and backend development to data science, design, project management, and quality assurance. Join us in shaping the future of technology and be a part of our collaborative journey to create cutting-edge solutions that make a lasting impact on the world.",
     jobs: [
       { id: 1, position: "Frontend Developer" },
       { id: 2, position: "Software Engineer" },
