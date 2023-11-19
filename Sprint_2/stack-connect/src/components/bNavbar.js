@@ -16,7 +16,7 @@ function bNavbar() {
   return (
     <Navbar collapseOnSelect expand="lg" bg="myBlue" variant="dark">
       <Container>
-        <Navbar.Brand href="#home">
+        <Navbar.Brand href="/">
           <img
             className="logo"
             alt="Stack"
@@ -47,6 +47,8 @@ function bNavbar() {
           <Nav className="ms-auto">
             <Nav.Link href="#jobs">Jobs</Nav.Link>
             <Nav.Link href="#login">Login</Nav.Link>
+            <Nav.Link href="/employee-profile">Employee Profile</Nav.Link>
+            <Nav.Link href="/developer-profile">Developer Profile</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
