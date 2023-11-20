@@ -1,6 +1,6 @@
 export const developerData = [
   {
-    name: "John Doe",
+    name: "Jonathan Joestar",
     email: "john.doe@gmail.com",
     phone: "123-456-7890",
     skills: ["JavaScript", "React", "HTML", "CSS"],

@@ -25,10 +25,18 @@
   background: lightgray;
 }
 
+.employer-profile-section {
+  width: 100%;
+  height: 100%;
+}
+
 .employer-profile-header {
   margin: 5px;
+  width: 851.64px;
+  height: 180px;
   display: inline-flex;
   align-items: center;
+  width: 100%;
   padding: 15px;
 }
 
@@ -43,7 +51,7 @@
 .employer-name {
   font-size: 28px;
   font-weight: 600;
-  margin-left: 20px;
+  margin-left: 10rem;
   margin-top: auto;
   margin-bottom: auto;
 }
@@ -54,12 +62,13 @@
 }
 
 .open-jobs-body {
+  margin-top: 15px;
+  margin-bottom: 10px;
   width: 100%;
   padding: 10px;
 }
 
-.open-jobs-body h4,
-.employer-profile-about-us h4 {
+.open-jobs-body h4 {
   font-size: 18px;
   font-weight: 600;
   margin: 8px 0;
@@ -98,6 +107,7 @@
   width: 100%;
   margin-top: 15px;
   margin-bottom: 10px;
+  padding: 10px;
 }
 
 .employer-profile-about-us h4 {
