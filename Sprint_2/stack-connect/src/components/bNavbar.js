@@ -1,7 +1,9 @@
-import "bootstrap/dist/css/bootstrap.min.css"; // import bs css
+// bNavbar.js
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/Navbar.css";
-import logo from "../images/logo2.svg"; // import logo
-
+import logo from "../images/logo2.svg";
 import {
   Button,
   Container,
@@ -12,11 +14,24 @@ import {
   Form,
 } from "react-bootstrap";
 
-function bNavbar() {
+function BNavbar() {
+  const navigate = useNavigate();
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    // Redirect to JobsPage with the search query as a parameter
+    navigate(`/jobs?search=${encodeURIComponent(searchQuery)}`);
+  };
+
   return (
     <Navbar collapseOnSelect expand="lg" bg="myBlue" variant="dark">
       <Container>
-        <Navbar.Brand href="/">
+        <Navbar.Brand as={Link} to="/">
           <img
             className="logo"
             alt="Stack"
@@ -29,14 +44,15 @@ function bNavbar() {
 
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Form inline className="mx-auto">
+          <Form inline className="mx-auto" onSubmit={handleSearchSubmit}>
             <Row>
               <Col xs="auto">
                 <Form.Control
                   type="text"
                   placeholder="Search..."
                   className="mr-sm-2"
-                  inline={1}
+                  value={searchQuery}
+                  onChange={handleSearchChange}
                 />
               </Col>
               <Col xs="auto">
@@ -57,4 +73,4 @@ function bNavbar() {
   );
 }
 
-export default bNavbar;
+export default BNavbar;
