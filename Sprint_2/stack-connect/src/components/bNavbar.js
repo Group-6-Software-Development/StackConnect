@@ -46,7 +46,8 @@ function bNavbar() {
           </Form>
           <Nav className="ms-auto">
             <Nav.Link href="/jobs">Jobs</Nav.Link>
-            <Nav.Link href="/login">Login</Nav.Link>
+            <Nav.Link href="/post-job">Post a Job</Nav.Link>
+            <Nav.Link href="/sign-in">Login</Nav.Link>
             <Nav.Link href="/employer-profile">Employer Profile</Nav.Link>
             <Nav.Link href="/developer-profile">Developer Profile</Nav.Link>
           </Nav>
