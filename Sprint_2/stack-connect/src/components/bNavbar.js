@@ -9,8 +9,6 @@ import {
   Container,
   Nav,
   Navbar,
-  Row,
-  Col,
   Form,
 } from "react-bootstrap";
 
@@ -44,21 +42,21 @@ function BNavbar() {
 
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Form inline className="mx-auto" onSubmit={handleSearchSubmit}>
-            <Row>
-              <Col xs="auto">
-                <Form.Control
-                  type="text"
-                  placeholder="Search..."
-                  className="mr-sm-2"
-                  value={searchQuery}
-                  onChange={handleSearchChange}
-                />
-              </Col>
-              <Col xs="auto">
-                <Button type="submit">Submit</Button>
-              </Col>
-            </Row>
+          <Form
+            inline
+            className="mx-auto"
+            style={{ display: "flex", alignItems: "baseline" }}
+            onSubmit={handleSearchSubmit}
+          >
+            <Form.Control
+              type="text"
+              placeholder="Search..."
+              className="mr-sm-2"
+              style={{ marginRight: "5px" }}
+              value={searchQuery}
+              onChange={handleSearchChange}
+            />
+            <Button type="submit">Submit</Button>
           </Form>
           <Nav className="ms-auto">
             <Nav.Link href="/jobs">Jobs</Nav.Link>
