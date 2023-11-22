@@ -1,0 +1,121 @@
+.employer-profile-page {
+  background-image: url("../../images/heroPhoto.jpg");
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.employer-profile {
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 45%;
+  height: 53rem;
+  flex-shrink: 0;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  /* Employer profile background color */
+  background: lightgray;
+}
+
+.employer-profile-section {
+  width: 100%;
+  height: 100%;
+}
+
+.employer-profile-header {
+  margin: 5px;
+  width: 851.64px;
+  height: 180px;
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+  padding: 15px;
+}
+
+.employer-profile-header img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.employer-name {
+  font-size: 28px;
+  font-weight: 600;
+  margin-left: 10rem;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.employer-profile-contents {
+  width: 100%;
+  padding: 15px;
+}
+
+.open-jobs-body {
+  margin-top: 15px;
+  margin-bottom: 10px;
+  width: 100%;
+  padding: 10px;
+}
+
+.open-jobs-body h4 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 8px 0;
+}
+
+.open-jobs {
+  margin-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.open-jobs li {
+  width: calc(33.33% - 10px);
+  margin: 5px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+
+  /* Single job listings background color */
+  background-color: #efefef;
+}
+
+.open-jobs li:hover {
+  transform: scale(1.03);
+
+  /* Single job listings background color when hovered over */
+  background-color: #dceef3;
+}
+
+.employer-profile-about-us {
+  width: 100%;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.employer-profile-about-us h4 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 8px 0;
+}
+
+.employer-profile-about-us p {
+  padding: 0 20px;
+}
