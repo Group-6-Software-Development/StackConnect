@@ -8,7 +8,7 @@ export default function RegisterPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const API_URL = "http://localhost:5000/api/users";
+  const API_URL = "http://localhost:5000/api/users/register";
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -69,7 +69,7 @@ export default function RegisterPage() {
             <input
               type="email"
               name="email"
-              placeholder="youremail@email.com"
+              placeholder="your.email@email.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="register-input"
