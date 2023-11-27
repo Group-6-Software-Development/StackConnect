@@ -6,6 +6,7 @@ const port = process.env.PORT;
 
 // import routes ↓
 const userRoutes = require("./routes/user");
+const jobsRoutes = require("./routes/jobs");
 // ------------
 
 // express app
@@ -22,6 +23,7 @@ app.use((req, res, next) => {
 
 // Routes
 app.use("/api/user", userRoutes);
+app.use("/api/jobs", jobsRoutes)
 
 // connect to database
 mongoose
