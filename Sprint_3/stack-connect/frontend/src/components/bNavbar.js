@@ -4,13 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/Navbar.css";
 import logo from "../images/logo2.svg";
-import {
-  Button,
-  Container,
-  Nav,
-  Navbar,
-  Form,
-} from "react-bootstrap";
+import { Button, Container, Nav, Navbar, Form } from "react-bootstrap";
 
 function BNavbar() {
   const navigate = useNavigate();
@@ -43,7 +37,6 @@ function BNavbar() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Form
-            inline
             className="mx-auto"
             style={{ display: "flex", alignItems: "baseline" }}
             onSubmit={handleSearchSubmit}

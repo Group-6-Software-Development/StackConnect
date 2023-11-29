@@ -27,12 +27,9 @@ const jobSchema = new Schema(
       type: String,
       required: true,
     },
-    skills: [
-      {
-        name: String,
-        level: Number,
-      },
-    ],
+    skills: {
+      type: String,
+    },
     user_id: {
       type: String,
       ref: "User",
