@@ -27,7 +27,7 @@ function BNavbar() {
   };
 
   return (
-    <Navbar collapseOnSelect expand="lg" bg="myBlue" variant="dark">
+    <Navbar collapseOnSelect expand="lg" bg="myBlue" variant="dark" sticky="top">
       <Container>
         <Navbar.Brand as={Link} to="/">
           <img
