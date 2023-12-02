@@ -1,77 +1,40 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import useField from "../hooks/useField";
+import useSignup from "../hooks/useSignup";
 import "./styles/RegisterPage.css";
 
-export default function RegisterPage() {
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const API_URL = "http://localhost:5000/api/users/register";
+const RegisterPage = () => {
+  const roleField = useField("");
+  const emailField = useField("email");
+  const passwordField = useField("password");
+  const confirmPasswordField = useField("password");
 
-  const handleSubmit = (e) => {
+  const [error, setError] = useState("");
+  const { handleSignup } = useSignup();
+
+  const handleSignUpClick = (e) => {
     e.preventDefault();
 
-    if (password !== confirmPassword) {
-      alert("Passwords do not match");
+    if (passwordField.value !== confirmPasswordField.value) {
+      setError("Passwords do not match");
       return;
-    } else if (password.length < 8) {
-      alert("Password must be at least 8 characters");
-      return;
-    } else {
-      const newUser = {
-        username: username,
-        email: email,
-        password: password,
-      };
-
-      console.log(newUser);
-
-      fetch(API_URL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newUser),
-      }).then((res) => {
-        res.json();
-        console.log(res.status);
-        if (res.status === 400) {
-          alert("Email already exists");
-        } else {
-          alert("Account created successfully");
-        }
-      });
     }
+
+    setError("");
+    handleSignup(emailField.value, passwordField.value, roleField.value);
   };
 
   return (
     <div className="register-page">
       <div className="register-header">
-        <form className="register-form" onSubmit={handleSubmit}>
+        <form className="register-form">
           <h2 className="register-title">Register</h2>
-          <label className="first-register-label">
-            Username:
-            <input
-              type="text"
-              name="username"
-              placeholder="Username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              className="register-input"
-              required
-            />
-          </label>
-          <br />
           <label className="register-label">
             Email:
             <input
-              type="email"
-              name="email"
+              {...emailField}
               placeholder="your.email@email.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
               className="register-input"
               required
             />
@@ -80,11 +43,8 @@ export default function RegisterPage() {
           <label className="register-label">
             Password:
             <input
-              type="password"
-              name="password"
+              {...passwordField}
               placeholder="**********"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
               className="register-input"
               required
             />
@@ -93,17 +53,26 @@ export default function RegisterPage() {
           <label className="register-label">
             Confirm Password:
             <input
-              type="password"
-              name="confirmPassword"
+              {...confirmPasswordField}
               placeholder="**********"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
               className="register-input"
               required
             />
           </label>
           <br />
-          <button type="submit" className="register-button">
+          <label className="register-label">
+            Role:
+            <select {...roleField} className="register-input" required>
+              <option value="" disabled hidden>
+                Select role
+              </option>
+              <option value="developer">Developer</option>
+              <option value="employer">Employer</option>
+            </select>
+          </label>
+          <br />
+          {error && <p style={{ color: "red" }}>{error}</p>}
+          <button onClick={handleSignUpClick} className="register-button">
             Register
           </button>
           <p className="already-user-text">
@@ -116,4 +85,6 @@ export default function RegisterPage() {
       </div>
     </div>
   );
-}
+};
+
+export default RegisterPage;

@@ -3,43 +3,37 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import "./styles/SignInPage.css";
 
-export default function SignInPage() {
+const SignInPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const API_URL = "http://localhost:5000/api/users/login";
+  const API_URL = "http://localhost:5000/api/user/login";
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const user = {
-      email: email,
-      password: password,
-    };
-
-    fetch(API_URL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(user),
-    })
-      .then((res) => {
-        res.json();
-        if (res.status === 400) {
-          alert("Invalid email or password");
-        } else {
-          alert("Logged in successfully");
-        }
-      })
-      .catch((err) => {
-        console.log(err);
+  const handleLogin = async () => {
+    try {
+      const response = fetch(API_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
       });
+
+      if (response.ok) {
+        const user = await response.json();
+        localStorage.setItem("user", JSON.stringify(user));
+        console.log("User logged in successfully");
+      } else {
+        console.error("Login failed");
+      }
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
     <div className="sign-in-page">
-      <form className="sign-in-form" onSubmit={handleSubmit}>
+      <form className="sign-in-form" onClick={handleLogin}>
         <h2 className="sign-in-title">Sign In</h2>
         <label className="first-sign-in-label" htmlFor="email">
           Email:
@@ -78,4 +72,6 @@ export default function SignInPage() {
       </form>
     </div>
   );
-}
+};
+
+export default SignInPage;
