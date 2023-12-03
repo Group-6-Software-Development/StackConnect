@@ -37,13 +37,15 @@ function CreateJobForm() {
       title,
       description,
       requirements,
-      skills,
       location,
-      companyInfo,
+      company: companyInfo,
       type,
+      skills,
     };
 
-    const response = await fetch("api/jobs", {
+    console.log("Job log1", job);
+
+    const response = await fetch("/api/jobs/", {
       method: "POST",
       body: JSON.stringify(job),
       headers: {
@@ -51,10 +53,12 @@ function CreateJobForm() {
       },
     });
     const json = await response.json();
+    console.log(JSON.stringify(response.body));
 
     if (!response.ok) {
       setError(json.error);
       setEmptyFields(json.emptyFields);
+      console.log(json.emptyFields);
     }
     if (response.ok) {
       setTitle("");
@@ -83,7 +87,7 @@ function CreateJobForm() {
             setCompanyInfo(e.target.value);
           }}
           value={companyInfo}
-          className={emptyFields.includes("companyInfo") ? "error" : ""}
+          //className={emptyFields.includes("company") ? "error" : ""}
         />
 
         <label>Job Title:</label>
@@ -95,7 +99,7 @@ function CreateJobForm() {
             setTitle(e.target.value);
           }}
           value={title}
-          className={emptyFields.includes("title") ? "error" : ""}
+          //  className={emptyFields.includes("title") ? "error" : ""}
         />
 
         <label>Job Description</label>
@@ -106,7 +110,7 @@ function CreateJobForm() {
           }}
           placeholder="Describe the Job..."
           value={description}
-          className={emptyFields.includes("description") ? "error" : ""}
+          // className={emptyFields.includes("description") ? "error" : ""}
         ></textarea>
 
         <label>Requirements</label>
@@ -118,7 +122,7 @@ function CreateJobForm() {
           }}
           placeholder="Describe needed tools..."
           value={requirements}
-          className={emptyFields.includes("requirements") ? "error" : ""}
+          // className={emptyFields.includes("requirements") ? "error" : ""}
         />
 
         <label>Skills</label>
@@ -141,7 +145,7 @@ function CreateJobForm() {
           }}
           placeholder="Company location..."
           value={location}
-          className={emptyFields.includes("location") ? "error" : ""}
+          //  className={emptyFields.includes("location") ? "error" : ""}
         />
 
         <div className="job-type-form">

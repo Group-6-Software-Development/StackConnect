@@ -1,5 +1,5 @@
 const express = require("express");
-const requireAuth = require("../middleware/requireAuth");
+//const requireAuth = require("../middleware/requireAuth");
 const {
   getJobs,
   getJob,
@@ -17,7 +17,8 @@ router.get("/", getJobs);
 router.get("/:id", getJob);
 
 // ↓ make sure user is logged in to access routes below ↓
-router.use(requireAuth);
+
+//router.use(requireAuth);
 
 // create job
 router.post("/", createJob);

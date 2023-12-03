@@ -1,44 +1,52 @@
-import React, { useState, useEffect } from 'react';
-import './styles/JobsPage.css';
-import jobImage from '../images/job-image.jpg';
-import { useLocation, Link } from 'react-router-dom';
-import { availableJobs } from '../data';
+import React, { useState, useEffect } from "react";
+import "./styles/JobsPage.css";
+import jobImage from "../images/job-image.jpg";
+import { useLocation } from "react-router-dom";
 
 const JobsPage = () => {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
-  const searchQuery = queryParams.get('search') || '';
+  const searchQuery = queryParams.get("search") || "";
   const lowerCaseQuery = searchQuery.toLowerCase();
 
-  const [filteredJobs, setFilteredJobs] = useState(() => {
-    return availableJobs.filter(
-      (job) =>
-        job.company.toLowerCase().includes(lowerCaseQuery) ||
-        job.position.toLowerCase().includes(lowerCaseQuery)
-    );
-  });
+  const [jobs, setJobs] = useState([]);
 
-  // Use useEffect to update the filteredJobs when the searchQuery changes
   useEffect(() => {
-    setFilteredJobs(() => {
-      return availableJobs.filter(
-        (job) =>
-          job.company.toLowerCase().includes(lowerCaseQuery) ||
-          job.position.toLowerCase().includes(lowerCaseQuery)
-      );
-    });
-  }, [lowerCaseQuery]);
+    const fetchJobs = async () => {
+      try {
+        const response = await fetch("/api/jobs");
+        const data = await response.json();
+        setJobs(data);
+      } catch (error) {
+        console.error("Error fetching jobs:", error);
+      }
+    };
+
+    fetchJobs();
+  }, []);
+
+  const filteredJobs = jobs.filter(
+    (job) =>
+      job.company.toLowerCase().includes(lowerCaseQuery) ||
+      job.title.toLowerCase().includes(lowerCaseQuery)
+  );
 
   // Function to reset the filter and show all jobs
-  const resetFilter = () => {
-    setFilteredJobs(availableJobs);
+  const resetFilter = async () => {
+    try {
+      const response = await fetch("/api/jobs");
+      const data = await response.json();
+      setJobs(data);
+    } catch (error) {
+      console.error("Error fetching jobs:", error);
+    }
   };
 
   return (
     <div className="jobs-page">
       <div className="jobs-header">
         <h2>
-          Available Jobs{' '}
+          Available Jobs{" "}
           <button className="refresh-button" onClick={resetFilter}>
             Show all
           </button>
@@ -46,11 +54,16 @@ const JobsPage = () => {
       </div>
       <div className="jobs-list">
         {filteredJobs.map((job) => (
-          <div key={job.id} className="job-card">
-            <img src={jobImage} alt={`Logo for ${job.company}`} className="company-logo" />
+          <div key={job._id} className="job-card">
+            {/* Adjust the image source accordingly */}
+            <img
+              src={jobImage}
+              alt={`Logo for ${job.company}`}
+              className="company-logo"
+            />
             <div className="job-details">
               <h3>{job.company}</h3>
-              <p>{job.position}</p>
+              <p>{job.title}</p>
             </div>
           </div>
         ))}

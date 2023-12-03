@@ -47,9 +47,9 @@ const createJob = async (req, res) => {
       .json({ error: "Please fill all fields", emptyFields });
   }
 
-  // add job to db
   try {
-    const user_id = req.user._id;
+    // add job to db FIX for logged in ↓
+    const user_id = 1234
     const job = await Job.create({
       title,
       description,
@@ -60,8 +60,10 @@ const createJob = async (req, res) => {
       skills,
       user_id,
     });
+    console.log(job);
     res.status(201).json(job);
   } catch (error) {
+    console.log(error.message);
     res.status(400).json({ message: error.message });
   }
 };
