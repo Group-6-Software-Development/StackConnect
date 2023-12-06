@@ -5,7 +5,7 @@ function createToken(_id) {
   return jwt.sign({ _id }, process.env.JWT_SECRET, { expiresIn: "1h" });
 }
 
-const registerNewUser = async (req, res) => {
+const registerUser = async (req, res) => {
   const { email, password, role } = req.body;
 
   try {
@@ -13,7 +13,7 @@ const registerNewUser = async (req, res) => {
 
     const token = createToken(user._id);
 
-    res.status(200).json({ email, token, role });
+    res.status(200).json({ email, token });
   } catch (error) {
     console.log(error.message);
     res.status(400).json({ message: error.message });
@@ -34,4 +34,9 @@ const loginUser = async (req, res) => {
   }
 };
 
-module.exports = { registerNewUser, loginUser };
+const getUser = async (req, res) => {
+  const user = await User.findById(req.user);
+  res.json(user);
+};
+
+module.exports = { registerUser, loginUser, getUser };
