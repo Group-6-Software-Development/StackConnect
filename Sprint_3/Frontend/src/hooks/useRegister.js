@@ -1,7 +1,10 @@
-const useSignup = () => {
-  const API_URL = "http://localhost:5000/api/user/register";
+import { useNavigate } from "react-router-dom";
 
-  const handleSignup = async (email, password, role) => {
+export default function useSignup() {
+  const navigate = useNavigate();
+  const API_URL = "http://localhost:5000/user/register";
+
+  const signup = async (email, password, role) => {
     console.log(email, password, role);
     try {
       const response = await fetch(API_URL, {
@@ -14,8 +17,13 @@ const useSignup = () => {
 
       if (response.ok) {
         const user = await response.json();
+
+        localStorage.setItem("token", user.token);
         localStorage.setItem("user", JSON.stringify(user));
+
         console.log("User signed up successfully!");
+
+        navigate("/profile");
       } else {
         const error = await response.json();
 
@@ -28,8 +36,6 @@ const useSignup = () => {
   };
 
   return {
-    handleSignup,
+    signup,
   };
-};
-
-export default useSignup;
+}

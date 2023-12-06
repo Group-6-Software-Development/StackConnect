@@ -1,26 +1,34 @@
+import { useEffect, useState } from "react";
 import "./styles/DeveloperProfile.css";
-import { developerData } from "../data/developer-data";
 
 function DeveloperProfile() {
-  const developerProfile = developerData.map((developer) => ({
-    name: developer.name,
-    email: developer.email,
-    phone: developer.phone,
-    skills: developer.skills,
-    experience: developer.experience.map((experience) => ({
-      title: experience.title,
-      company: experience.company,
-      startDate: experience.startDate,
-      endDate: experience.endDate,
-      description: experience.description,
-    })),
-    education: developer.education.map((education) => ({
-      school: education.school,
-      degree: education.degree,
-      startDate: education.startDate,
-      endDate: education.endDate,
-    })),
-  }));
+  const [developerProfile, setDeveloperProfile] = useState([]);
+
+  const API_URL = "http://localhost:5000/profile/";
+
+  const getDeveloperProfile = async () => {
+    try {
+      const response = await fetch(API_URL, {
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+      });
+
+      if (!response.ok) {
+        console.error("Developer profile retrieval failed");
+      } else {
+        const data = await response.json();
+
+        console.log("Developer profile retrieved successfully");
+
+        setDeveloperProfile(data);
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  useEffect(() => {
+    getDeveloperProfile();
+  }, []);
 
   return (
     <div className="developer-profile-page">

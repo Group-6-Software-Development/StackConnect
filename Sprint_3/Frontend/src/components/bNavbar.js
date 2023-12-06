@@ -4,13 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/Navbar.css";
 import logo from "../images/logo2.svg";
-import {
-  Button,
-  Container,
-  Nav,
-  Navbar,
-  Form,
-} from "react-bootstrap";
+import { Button, Container, Nav, Navbar, Form } from "react-bootstrap";
 
 function BNavbar() {
   const navigate = useNavigate();
@@ -63,7 +57,7 @@ function BNavbar() {
             <Nav.Link href="/post-job">Post a Job</Nav.Link>
             <Nav.Link href="/sign-in">Login</Nav.Link>
             <Nav.Link href="/employer-profile">Employer Profile</Nav.Link>
-            <Nav.Link href="/developer-profile">Developer Profile</Nav.Link>
+            <Nav.Link href="/profile">Profile</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

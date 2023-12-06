@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import useField from "../hooks/useField";
-import useSignup from "../hooks/useSignup";
+import useRegister from "../hooks/useRegister";
 import "./styles/RegisterPage.css";
 
 const RegisterPage = () => {
@@ -11,7 +11,7 @@ const RegisterPage = () => {
   const confirmPasswordField = useField("password");
 
   const [error, setError] = useState("");
-  const { handleSignup } = useSignup();
+  const { signup } = useRegister();
 
   const handleSignUpClick = (e) => {
     e.preventDefault();
@@ -22,7 +22,7 @@ const RegisterPage = () => {
     }
 
     setError("");
-    handleSignup(emailField.value, passwordField.value, roleField.value);
+    signup(emailField.value, passwordField.value, roleField.value);
   };
 
   return (
