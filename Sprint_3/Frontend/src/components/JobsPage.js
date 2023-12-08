@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './styles/JobsPage.css';
 import jobImage from '../images/job-image.jpg';
-import { useLocation, Link } from 'react-router-dom';
-import { availableJobs } from '../data';
+import { useLocation } from 'react-router-dom';
 
 const JobsPage = () => {
   const location = useLocation();
@@ -10,28 +9,37 @@ const JobsPage = () => {
   const searchQuery = queryParams.get('search') || '';
   const lowerCaseQuery = searchQuery.toLowerCase();
 
-  const [filteredJobs, setFilteredJobs] = useState(() => {
-    return availableJobs.filter(
-      (job) =>
-        job.company.toLowerCase().includes(lowerCaseQuery) ||
-        job.position.toLowerCase().includes(lowerCaseQuery)
-    );
-  });
+  const [jobs, setJobs] = useState([]);
 
-  // Use useEffect to update the filteredJobs when the searchQuery changes
   useEffect(() => {
-    setFilteredJobs(() => {
-      return availableJobs.filter(
-        (job) =>
-          job.company.toLowerCase().includes(lowerCaseQuery) ||
-          job.position.toLowerCase().includes(lowerCaseQuery)
-      );
-    });
-  }, [lowerCaseQuery]);
+    const fetchJobs = async () => {
+      try {
+        const response = await fetch('http://localhost:3002/jobs');
+        const data = await response.json();
+        setJobs(data);
+      } catch (error) {
+        console.error('Error fetching jobs:', error);
+      }
+    };
+
+    fetchJobs();
+  }, []);
+
+  const filteredJobs = jobs.filter(
+    (job) =>
+      job.company.toLowerCase().includes(lowerCaseQuery) ||
+      job.position.toLowerCase().includes(lowerCaseQuery)
+  );
 
   // Function to reset the filter and show all jobs
-  const resetFilter = () => {
-    setFilteredJobs(availableJobs);
+  const resetFilter = async () => {
+    try {
+      const response = await fetch('http://localhost:3002/api/jobs');
+      const data = await response.json();
+      setJobs(data);
+    } catch (error) {
+      console.error('Error fetching jobs:', error);
+    }
   };
 
   return (
@@ -46,7 +54,8 @@ const JobsPage = () => {
       </div>
       <div className="jobs-list">
         {filteredJobs.map((job) => (
-          <div key={job.id} className="job-card">
+          <div key={job._id} className="job-card">
+            {/* Adjust the image source accordingly */}
             <img src={jobImage} alt={`Logo for ${job.company}`} className="company-logo" />
             <div className="job-details">
               <h3>{job.company}</h3>
