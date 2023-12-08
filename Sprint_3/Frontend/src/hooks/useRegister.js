@@ -23,7 +23,7 @@ export default function useSignup() {
 
         console.log("User signed up successfully!");
 
-        navigate("/profile");
+        navigate("/jobs");
       } else {
         const error = await response.json();
 
