@@ -1,9 +1,9 @@
 // server.js
-console.log("Server.js is running...")
+console.log("Server.js is running...");
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const jobRouter = require("./src/routers/jobs"); // Import the job router
+const jobRouter = require("./routers/jobs"); // Import the job router
 
 require("dotenv").config();
 
