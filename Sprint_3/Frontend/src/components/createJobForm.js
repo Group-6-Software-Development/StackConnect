@@ -45,7 +45,7 @@ function CreateJobForm() {
 
     console.log("Job log1", job);
 
-    const response = await fetch("/api/jobs/", {
+    const response = await fetch("/jobs/", {
       method: "POST",
       body: JSON.stringify(job),
       headers: {
