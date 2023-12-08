@@ -1,0 +1,15 @@
+.job-preview-frame {
+  background: #007bff;
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 20px;
+  color: #fcfcfc;
+  box-shadow: 10px 10px 5px lightgrey;
+  height: fit-content;
+}
+.job-preview-frame:hover {
+  cursor: pointer;
+}
