@@ -14,7 +14,7 @@ const JobsPage = () => {
   useEffect(() => {
     const fetchJobs = async () => {
       try {
-        const response = await fetch('http://localhost:3002/jobs');
+        const response = await fetch('http://localhost:5000/jobs');
         const data = await response.json();
         setJobs(data);
       } catch (error) {
