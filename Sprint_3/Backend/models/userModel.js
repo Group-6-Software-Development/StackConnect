@@ -34,8 +34,7 @@ userSchema.statics.signup = async function (
   firstName,
   lastName,
   email,
-  password,
-  role
+  password
 ) {
   // validation
   if (!firstName || !lastName || !email || !password) {
