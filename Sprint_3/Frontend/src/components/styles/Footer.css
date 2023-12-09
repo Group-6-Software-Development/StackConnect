@@ -1,26 +1,8 @@
-/* Footer.css */
-.footer {
-  background-color: #d2d1d1;
-  color: #333;
-  padding: 10px;
-}
-
-.footer-wrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.company-info {
-  margin-bottom: 10px;
-}
-
-.about-link a {
-  color: #333;
-  text-decoration: none;
-}
-
-.about-link a:hover {
-  text-decoration: underline;
+footer {
+  background-color: gray;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 8px;
+  text-align: center;
 }
