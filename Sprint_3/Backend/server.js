@@ -14,9 +14,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/user", require("./routers/userRoutes"));
-app.use("/profile", require("./routers/profileRoutes"));
 app.use("/jobs", require("./routers/jobsRoutes"));
-app.use("/jobs", require("./routes/jobs"));
 
 app.use(errorHandler);
 
