@@ -1,14 +1,18 @@
 const mongoose = require("mongoose");
-require("dotenv").config(); // Load environment variables from .env
+require("dotenv").config();
 
-const MONGO_URI = process.env.MONGO_URI; // Access the database URI from .env
+const MONGO_URI = process.env.MONGO_URI;
 
 const connectDB = async () => {
   try {
-    const conn = await mongoose.connect(MONGO_URI);
+    const conn = await mongoose.connect(MONGO_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
     console.log(`Connected to database`);
   } catch (error) {
-    console.log(error.message);
+    console.error("Error connecting to database:", error.message);
+    process.exit(1); // Exit with failure
   }
 };
 

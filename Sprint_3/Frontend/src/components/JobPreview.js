@@ -1,3 +1,5 @@
+// JobPreview.js
+
 import { useState } from "react";
 import "./styles/jobPreview.css";
 
@@ -9,16 +11,40 @@ const JobPreview = ({
   skills,
   requirements,
   type,
+  onApplyNowClick,
+  showApplyButton,
+  applied,
+  isJobsPage = false,
+  isJobPreview = true,
+  isExpanded,
 }) => {
-  const [size, setSize] = useState("small");
+  const [size, setSize] = useState(isExpanded ? "large" : "small");
 
   const handleClick = () => {
-    setSize(size === "small" ? "large" : "small");
+    if (isJobPreview) {
+      setSize(size === "small" ? "large" : "small");
+    }
   };
+
+  const handleApplyClick = () => {
+    if (showApplyButton) {
+      onApplyNowClick();
+    }
+  };
+
   return (
-    <div className="job-preview-frame" onClick={handleClick}>
-      <h2>Post Preview</h2>
-      <p>Click to enlarge</p>
+    <div className={`job-preview-frame ${size}`} onClick={handleClick}>
+      {isJobsPage && (
+        <>
+          <h2>Information</h2>
+        </>
+      )}
+      {isJobPreview && (
+        <>
+          <h2>Post Preview</h2>
+          <p>Click to expand</p>
+        </>
+      )}
       <p>
         <strong>Title:</strong> {title}
       </p>
@@ -44,7 +70,14 @@ const JobPreview = ({
           </p>
         </>
       )}
+      {showApplyButton && !applied && (
+        <button className="apply-button" onClick={handleApplyClick}>
+          Apply Now!
+        </button>
+      )}
+      {applied && <div className="applied-text">Applied!</div>}
     </div>
   );
 };
+
 export default JobPreview;

@@ -4,7 +4,7 @@ const express = require("express");
 const cors = require("cors");
 const { errorHandler } = require("./middleware/errorMiddleware");
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 5000;
 
 connectDB();
 
@@ -16,7 +16,7 @@ app.use(express.json());
 app.use("/user", require("./routers/userRoutes"));
 app.use("/profile", require("./routers/profileRoutes"));
 app.use("/jobs", require("./routers/jobsRoutes"));
-app.use("/jobs", require("./routes/jobs"));
+//app.use("/jobs", require("./routes/jobs"));
 
 app.use(errorHandler);
 

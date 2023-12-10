@@ -13,3 +13,29 @@
 .job-preview-frame:hover {
   cursor: pointer;
 }
+
+.apply-button {
+  margin-top: 10px;
+  padding: 10px 15px;
+  background-color: #2872a7;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.apply-button:hover {
+  background-color: #212188;
+}
+
+.applied-text {
+  padding: 10px 15px;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  margin-top: 10px;
+  font-weight: bold;
+  text-align: center;
+}
