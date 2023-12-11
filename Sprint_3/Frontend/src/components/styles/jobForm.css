@@ -27,8 +27,8 @@
 }
 
 .create-job label {
-  font-weight: bold;
-  margin-top: 20px;
+  color: rgba(0, 0, 0, 1);
+  margin-top: 10px;
 }
 
 .create-job input[type="text"],
