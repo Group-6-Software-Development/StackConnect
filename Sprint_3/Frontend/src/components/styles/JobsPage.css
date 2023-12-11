@@ -22,7 +22,7 @@
 
 .refresh-button {
   padding: 10px 15px;
-  background-color: #4c6baf;
+  background-color: #5682d2;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -31,7 +31,7 @@
 }
 
 .refresh-button:hover {
-  background-color: #121b13;
+  background-color: #4565a0;
 }
 
 .jobs-list {

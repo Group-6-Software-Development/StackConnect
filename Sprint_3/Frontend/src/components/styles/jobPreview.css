@@ -1,12 +1,12 @@
 .job-preview-frame {
-  background: #007bff;
+  background: rgba(93, 169, 233, 0.95);
   display: flex;
   flex-direction: column;
   width: 400px;
   margin: 0 auto;
   padding: 20px;
   border-radius: 20px;
-  color: #fcfcfc;
+  /*color: #fcfcfc;*/
   box-shadow: 10px 10px 5px lightgrey;
   height: fit-content;
 }
