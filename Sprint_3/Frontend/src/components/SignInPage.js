@@ -9,7 +9,7 @@ const SignInPage = () => {
   const password = useField("password");
   const { login } = useLogin();
 
-  const handleSubmit = async (e) => {
+  const handleLoginClick = (e) => {
     e.preventDefault();
 
     login({ email: email.value, password: password.value });
@@ -31,7 +31,7 @@ const SignInPage = () => {
         <button
           type="submit"
           className="sign-in-button"
-          onSubmit={handleSubmit}
+          onClick={handleLoginClick}
         >
           Sign In
         </button>
