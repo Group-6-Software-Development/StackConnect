@@ -15,7 +15,7 @@
 }
 
 .create-job {
-  background: #007bff;
+  background: rgba(93, 169, 233, 0.95);
   display: flex;
   flex-direction: column;
   width: 400px;
@@ -42,7 +42,7 @@
 }
 
 .job-type-form {
-  background: #4bb543;
+  background: #3967bc;
   padding: 10px;
   border-radius: inherit;
 }
@@ -62,7 +62,7 @@
 .create-job button {
   margin-top: 20px;
   padding: 10px 20px;
-  background-color: #4bb543;
+  background-color: #5682d2;
   color: #fcfcfc;
   border: clear;
   border-radius: 4px;
@@ -81,5 +81,5 @@ input.error {
 }
 
 .create-job button:hover {
-  background-color: #0056b3;
+  background-color: #4565a0;
 }

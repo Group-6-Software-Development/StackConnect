@@ -22,8 +22,6 @@ function App() {
           <Route path="/sign-in" element={<SignInPage />} />
           <Route path="/post-job" element={<JobPostPage />} />
           <Route path="/jobs" element={<JobsPage />} />
-          <Route path="/employer-profile" element={<EmployerProfile />} />
-          <Route path="/profile" element={<DeveloperProfile />} />
         </Routes>
         <Footer />
       </BrowserRouter>
