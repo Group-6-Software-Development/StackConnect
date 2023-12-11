@@ -50,7 +50,6 @@ const createJob = async (req, res) => {
   try {
     // add job to db FIX for logged in ↓
     const job = await Job.create({
-      user: req.user,
       title,
       description,
       requirements,
