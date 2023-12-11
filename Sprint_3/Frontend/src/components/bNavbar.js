@@ -62,8 +62,6 @@ function BNavbar() {
             <Nav.Link href="/jobs">Jobs</Nav.Link>
             <Nav.Link href="/post-job">Post a Job</Nav.Link>
             <Nav.Link href="/sign-in">Login</Nav.Link>
-            <Nav.Link href="/employer-profile">Employer Profile</Nav.Link>
-            <Nav.Link href="/profile">Profile</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
