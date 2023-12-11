@@ -38,7 +38,7 @@ const RegisterPage = () => {
         <form className="register-form">
           <h2 className="register-title">Register</h2>
           <label className="register-label">
-            Fisrt Name:
+            First Name:
             <input
               {...firstNameField}
               placeholder="First Name"

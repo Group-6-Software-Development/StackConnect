@@ -45,7 +45,7 @@
   height: 170px; /* Set a fixed height for all job cards */
   margin: 10px;
   padding: 20px;
-  background: rgba(93, 171, 255, 0.85); /* Background color with opacity */
+  background: rgba(93, 169, 233, 0.90); /* Background color with opacity */
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   text-align: left;
