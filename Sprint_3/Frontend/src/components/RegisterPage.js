@@ -4,7 +4,7 @@ import useField from "../hooks/useField";
 import useRegister from "../hooks/useRegister";
 import "./styles/RegisterPage.css";
 
-const RegisterPage = () => {
+const RegisterPage = ({ setIsAuthenticated }) => {
   const firstNameField = useField("");
   const lastNameField = useField("");
   const emailField = useField("email");
@@ -30,6 +30,7 @@ const RegisterPage = () => {
       emailField.value,
       passwordField.value
     );
+    setIsAuthenticated(true);
   };
 
   return (

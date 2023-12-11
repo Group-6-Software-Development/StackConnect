@@ -6,8 +6,11 @@ import "./styles/Navbar.css";
 import logo from "../images/logo2.svg";
 import { Button, Container, Nav, Navbar, Form } from "react-bootstrap";
 
-function BNavbar() {
+const BNavbar = ({ isAuthenticated, setIsAuthenticated }) => {
   const navigate = useNavigate();
+
+  console.log("isAuthenticated: ", isAuthenticated);
+
   const [searchQuery, setSearchQuery] = useState("");
 
   const handleSearchChange = (e) => {
@@ -60,14 +63,30 @@ function BNavbar() {
           </Form>
           <Nav className="ms-auto">
             <Nav.Link href="/jobs">Jobs</Nav.Link>
-            <Nav.Link href="/post-job">Post a Job</Nav.Link>
-            <Nav.Link href="/sign-in">Sign In</Nav.Link>
-            <Nav.Link href="/register">Register</Nav.Link>
+            {isAuthenticated && (
+              <Nav.Link href="/post-job">Post a Job</Nav.Link>
+            )}
+            {!isAuthenticated && <Nav.Link href="/sign-in">Sign In</Nav.Link>}
+            {!isAuthenticated && <Nav.Link href="/register">Register</Nav.Link>}
+            {isAuthenticated && (
+              <>
+                <Nav.Link
+                  href="/sign-in"
+                  onClick={() => {
+                    localStorage.removeItem("user");
+                    localStorage.removeItem("token");
+                    setIsAuthenticated(false);
+                  }}
+                >
+                  Log out
+                </Nav.Link>
+              </>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
   );
-}
+};
 
 export default BNavbar;
