@@ -50,6 +50,7 @@ function CreateJobForm() {
       body: JSON.stringify(job),
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
     });
     const json = await response.json();

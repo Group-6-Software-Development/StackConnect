@@ -15,7 +15,7 @@ router.get("/", getJobs);
 
 router.get("/:id", getJob);
 
-router.post("/", createJob);
+router.post("/", protect, createJob);
 
 router.put("/:id", protect, updateJob);
 
