@@ -20,7 +20,7 @@ export default function useLogin() {
 
         console.log("User logged in successfully!");
 
-        navigate("/profile");
+        navigate("/jobs");
       } else {
         const error = await response.json();
 
