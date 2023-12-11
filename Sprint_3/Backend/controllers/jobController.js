@@ -49,8 +49,8 @@ const createJob = async (req, res) => {
 
   try {
     // add job to db FIX for logged in ↓
-    const user_id = 1234
     const job = await Job.create({
+      user: req.user,
       title,
       description,
       requirements,
@@ -58,7 +58,6 @@ const createJob = async (req, res) => {
       company,
       type,
       skills,
-      user_id,
     });
     console.log(job);
     res.status(201).json(job);

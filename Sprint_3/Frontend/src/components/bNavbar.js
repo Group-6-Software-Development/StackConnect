@@ -4,13 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/Navbar.css";
 import logo from "../images/logo2.svg";
-import {
-  Button,
-  Container,
-  Nav,
-  Navbar,
-  Form,
-} from "react-bootstrap";
+import { Button, Container, Nav, Navbar, Form } from "react-bootstrap";
 
 function BNavbar() {
   const navigate = useNavigate();
@@ -27,7 +21,13 @@ function BNavbar() {
   };
 
   return (
-    <Navbar collapseOnSelect expand="lg" bg="myBlue" variant="dark" sticky="top">
+    <Navbar
+      collapseOnSelect
+      expand="lg"
+      bg="myBlue"
+      variant="dark"
+      sticky="top"
+    >
       <Container>
         <Navbar.Brand as={Link} to="/">
           <img
@@ -61,9 +61,8 @@ function BNavbar() {
           <Nav className="ms-auto">
             <Nav.Link href="/jobs">Jobs</Nav.Link>
             <Nav.Link href="/post-job">Post a Job</Nav.Link>
-            <Nav.Link href="/sign-in">Login</Nav.Link>
-            <Nav.Link href="/employer-profile">Employer Profile</Nav.Link>
-            <Nav.Link href="/profile">Profile</Nav.Link>
+            <Nav.Link href="/sign-in">Sign In</Nav.Link>
+            <Nav.Link href="/register">Register</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

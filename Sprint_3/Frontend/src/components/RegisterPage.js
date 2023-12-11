@@ -5,7 +5,8 @@ import useRegister from "../hooks/useRegister";
 import "./styles/RegisterPage.css";
 
 const RegisterPage = () => {
-  const roleField = useField("");
+  const firstNameField = useField("");
+  const lastNameField = useField("");
   const emailField = useField("email");
   const passwordField = useField("password");
   const confirmPasswordField = useField("password");
@@ -22,7 +23,13 @@ const RegisterPage = () => {
     }
 
     setError("");
-    signup(emailField.value, passwordField.value, roleField.value);
+
+    signup(
+      firstNameField.value,
+      lastNameField.value,
+      emailField.value,
+      passwordField.value
+    );
   };
 
   return (
@@ -30,6 +37,26 @@ const RegisterPage = () => {
       <div className="register-header">
         <form className="register-form">
           <h2 className="register-title">Register</h2>
+          <label className="register-label">
+            Fisrt Name:
+            <input
+              {...firstNameField}
+              placeholder="First Name"
+              className="register-input"
+              required
+            />
+          </label>
+          <br />
+          <label className="register-label">
+            Last Name:
+            <input
+              {...lastNameField}
+              placeholder="Last Name"
+              className="register-input"
+              required
+            />
+          </label>
+          <br />
           <label className="register-label">
             Email:
             <input
@@ -58,17 +85,6 @@ const RegisterPage = () => {
               className="register-input"
               required
             />
-          </label>
-          <br />
-          <label className="register-label">
-            Role:
-            <select {...roleField} className="register-input" required>
-              <option value="" disabled hidden>
-                Select role
-              </option>
-              <option value="developer">Developer</option>
-              <option value="employer">Employer</option>
-            </select>
           </label>
           <br />
           {error && <p style={{ color: "red" }}>{error}</p>}

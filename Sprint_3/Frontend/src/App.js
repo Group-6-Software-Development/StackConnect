@@ -4,8 +4,6 @@ import Hero from "./components/Hero";
 import RegisterPage from "./components/RegisterPage";
 import SignInPage from "./components/SignInPage";
 import JobPostPage from "./components/JobPostPage";
-import EmployerProfile from "./components/EmployerProfile";
-import DeveloperProfile from "./components/DeveloperProfile";
 import Footer from "./components/Footer";
 import JobsPage from "./components/JobsPage";
 import React from "react";
@@ -22,8 +20,6 @@ function App() {
           <Route path="/sign-in" element={<SignInPage />} />
           <Route path="/post-job" element={<JobPostPage />} />
           <Route path="/jobs" element={<JobsPage />} />
-          <Route path="/employer-profile" element={<EmployerProfile />} />
-          <Route path="/profile" element={<DeveloperProfile />} />
         </Routes>
         <Footer />
       </BrowserRouter>
