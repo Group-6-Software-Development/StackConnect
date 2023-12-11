@@ -4,7 +4,7 @@ import "./styles/SignInPage.css";
 import useField from "../hooks/useField";
 import useLogin from "../hooks/useLogin";
 
-const SignInPage = () => {
+const SignInPage = (setIsAuthenticated) => {
   const email = useField("email");
   const password = useField("password");
   const { login } = useLogin();
@@ -13,6 +13,7 @@ const SignInPage = () => {
     e.preventDefault();
 
     login({ email: email.value, password: password.value });
+    setIsAuthenticated(true);
   };
 
   return (

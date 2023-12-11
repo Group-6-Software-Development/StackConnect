@@ -6,18 +6,30 @@ import SignInPage from "./components/SignInPage";
 import JobPostPage from "./components/JobPostPage";
 import Footer from "./components/Footer";
 import JobsPage from "./components/JobsPage";
-import React from "react";
+import { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(
+    Boolean(localStorage.getItem("token")) || false
+  );
   return (
     <div className="App">
       <BrowserRouter>
-        <Navbar />
+        <Navbar
+          isAuthenticated={isAuthenticated}
+          setIsAuthenticated={setIsAuthenticated}
+        />
         <Routes>
           <Route path="/" element={<Hero />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/sign-in" element={<SignInPage />} />
+          <Route
+            path="/register"
+            element={<RegisterPage setIsAuthenticated={setIsAuthenticated} />}
+          />
+          <Route
+            path="/sign-in"
+            element={<SignInPage setIsAuthenticated={setIsAuthenticated} />}
+          />
           <Route path="/post-job" element={<JobPostPage />} />
           <Route path="/jobs" element={<JobsPage />} />
         </Routes>
