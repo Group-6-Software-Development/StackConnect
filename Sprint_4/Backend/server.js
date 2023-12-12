@@ -1,11 +1,11 @@
+const swaggerUi = require("swagger-ui-express");
+const swaggerSpec = require("./swaggerConfig.js");
+
 require("dotenv").config();
 const connectDB = require("./config/db");
 const express = require("express");
 const cors = require("cors");
 const { errorHandler } = require("./middleware/errorMiddleware");
-
-const swaggerUi = require("swagger-ui-express");
-const swaggerSpec = require("./swaggerConfig.js");
 
 const PORT = process.env.PORT || 5000;
 

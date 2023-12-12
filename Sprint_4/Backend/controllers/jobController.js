@@ -97,7 +97,10 @@ const updateJob = async (req, res) => {
   if (!job) {
     return res.status(400).json({ error: "No such job" });
   }
-  res.status(200).json(job);
+
+  const newJob = await Job.findById(id);
+
+  res.status(200).json(newJob);
 };
 
 module.exports = {

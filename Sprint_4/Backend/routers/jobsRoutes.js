@@ -1,5 +1,4 @@
 const express = require("express");
-
 const {
   getJobs,
   getJob,
@@ -7,168 +6,182 @@ const {
   deleteJob,
   updateJob,
 } = require("../controllers/jobController");
-
 const { protect } = require("../middleware/authMiddleware");
 
 const router = express.Router();
 
 /**
- * @Swagger
+ * @swagger
  * tags:
- *  name: Jobs
- *  description: API Endpoints for managing jobs
+ *   name: Jobs
+ *   description: API Endpoints for managing jobs
  */
 
 /**
- * @Swagger
+ * @swagger
  * components:
- *  schemas:
- *    Job:
- *      type: object
- *      properties:
- *        user:
- *          type: string
- *        title:
- *          type: string
- *        description:
- *          type: string
- *        requirements:
- *          type: string
- *        location:
- *          type: string
- *       company:
- *         type: string
- *       type:
- *         type: array
- *       skills:
- *         type: string
- *       required:
- *        - user
- *        - title
- *        - description
- *        - requirements
- *        - location
- *        - company
- *        - type
- *       example:
- *          user: 61234567890abcdef1234567
- *          title: Software Engineer
- *          description: Developing software applications
- *          requirements: Bachelor's degree in Computer Science
- *          location: New York, USA
- *          company: ABC Company
- *          type: Full-time
- *          skills: JavaScript, HTML, CSS
+ *   securitySchemes:
+ *     bearerAuth:
+ *       type: http
+ *       scheme: bearer
+ *       bearerFormat: JWT
+ *   schemas:
+ *     Job:
+ *       type: object
+ *       properties:
+ *         title:
+ *           type: string
+ *           description: The title of the job
+ *           example: Software Developer
+ *         description:
+ *           type: string
+ *           description: The description of the job
+ *           example: We are looking for a software developer to join our team.
+ *         requirements:
+ *           type: string
+ *           description: The requirements of the job
+ *           example: 2 years of experience in software development.
+ *         location:
+ *           type: string
+ *           description: The location of the job
+ *           example: Berlin, Germany
+ *         company:
+ *           type: string
+ *           description: The company of the job
+ *           example: Company Inc.
+ *         type:
+ *           type: array
+ *           items:
+ *             type: string
+ *           description: The type of the job
+ *           example:
+ *             - Full-time
+ *             - Part-time
+ *         skills:
+ *           type: string
+ *           description: The skills of the job
+ *           example: JavaScript, React, Node.js
  */
 
 // Get all jobs
 /**
- * @Swagger
+ * @swagger
  * /jobs:
- *  get:
- *    description: Get all jobs
- *    responses:
- *      '200':
- *        description: Success
- *      '500':
- *        description: Error
+ *   get:
+ *     summary: Get all jobs
+ *     tags: [Jobs]
+ *     responses:
+ *       '200':
+ *         description: Successfully retrieved jobs
+ *       '500':
+ *         description: Internal server error
  */
 router.get("/", getJobs);
 
 // Get a single job by ID
 /**
- * @Swagger
+ * @swagger
  * /jobs/{id}:
- * get:
- *  description: Get a single job by ID
- *  parameters:
- *    - in: path
- *      name: id
- *      required: true
- *      description: The ID of the job
- *      schema:
- *        type: string
- *      responses:
- *        '200':
- *          description: Success
- *         '400':
- *           description: Invalid job ID
- *        '404':
- *          description: Job not found
+ *   get:
+ *     summary: Get a single job by ID
+ *     tags: [Jobs]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         description: The ID of the job
+ *         schema:
+ *           type: string
+ *     responses:
+ *       '200':
+ *         description: Successfully retrieved the job
+ *       '400':
+ *         description: Invalid job ID format
+ *       '404':
+ *         description: Job not found
  */
 router.get("/:id", getJob);
 
 // Create a job
 /**
- * @Swagger
+ * @swagger
  * /jobs:
- *  post:
- *    description: Create a job
- *    requestBody:
- *      required: true
- *      content:
- *        application/json:
- *          schema:
- *            $ref: '#/components/schemas/Job'
- *    responses:
- *      '201':
- *        description: Success
- *      '400':
- *        description: All fields not filled
- *      '401':
- *        description: Unauthorized
+ *   post:
+ *     summary: Create a job
+ *     tags: [Jobs]
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/Job'
+ *     responses:
+ *       '201':
+ *         description: Job created successfully
+ *       '400':
+ *         description: Missing or invalid fields
+ *       '401':
+ *         description: Unauthorized request
  */
 router.post("/", protect, createJob);
 
 // Update a job
 /**
- * @Swagger
+ * @swagger
  * /jobs/{id}:
- *  put:
- *    description: Update a job
- *    parameters:
- *      - in: path
- *        name: id
- *        required: true
- *        description: The ID of the job
- *        schema:
- *          type: string
- *    requestBody:
- *      required: true
- *      content:
- *        application/json:
- *          schema:
- *            $ref: '#/components/schemas/Job'
- *    responses:
- *      '200':
- *        description: Success
- *      '400':
- *        description: Invalid job ID
- *      '401':
- *        description: Unauthorized
+ *   put:
+ *     summary: Update a job by ID
+ *     tags: [Jobs]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         description: The ID of the job
+ *         schema:
+ *           type: string
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/Job'
+ *     responses:
+ *       '200':
+ *         description: Job updated successfully
+ *       '400':
+ *         description: Invalid job ID format or missing fields
+ *       '401':
+ *         description: Unauthorized request
  */
 router.put("/:id", protect, updateJob);
 
 // Delete a job
 /**
- * @Swagger
+ * @swagger
  * /jobs/{id}:
- *  delete:
- *    description: Delete a job
- *    parameters:
- *      - in: path
- *        name: id
- *        required: true
- *        description: The ID of the job
- *        schema:
- *          type: string
- *    responses:
- *      '200':
- *        description: Success
- *      '400':
- *        description: Invalid job ID
- *      '401':
- *        description: Unauthorized
+ *   delete:
+ *     summary: Delete a job by ID
+ *     tags: [Jobs]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         description: The ID of the job
+ *         schema:
+ *           type: string
+ *     responses:
+ *       '200':
+ *         description: Job deleted successfully
+ *       '400':
+ *         description: Invalid job ID format
+ *       '401':
+ *         description: Unauthorized request
  */
 router.delete("/:id", protect, deleteJob);
 
