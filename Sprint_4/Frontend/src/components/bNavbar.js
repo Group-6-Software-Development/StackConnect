@@ -62,14 +62,10 @@ const BNavbar = ({ isAuthenticated, setIsAuthenticated }) => {
             <Button type="submit">Submit</Button>
           </Form>
           <Nav className="ms-auto">
-            <Nav.Link href="/jobs">Jobs</Nav.Link>
-            {isAuthenticated && (
-              <Nav.Link href="/post-job">Post a Job</Nav.Link>
-            )}
-            {!isAuthenticated && <Nav.Link href="/sign-in">Sign In</Nav.Link>}
-            {!isAuthenticated && <Nav.Link href="/register">Register</Nav.Link>}
             {isAuthenticated && (
               <>
+                <Nav.Link href="/jobs">Jobs</Nav.Link>
+                <Nav.Link href="/post-job">Post a Job</Nav.Link>
                 <Nav.Link
                   href="/sign-in"
                   onClick={() => {
@@ -80,6 +76,12 @@ const BNavbar = ({ isAuthenticated, setIsAuthenticated }) => {
                 >
                   Log out
                 </Nav.Link>
+              </>
+            )}
+            {!isAuthenticated && (
+              <>
+                <Nav.Link href="/sign-in">Sign In</Nav.Link>
+                <Nav.Link href="/register">Register</Nav.Link>
               </>
             )}
           </Nav>
