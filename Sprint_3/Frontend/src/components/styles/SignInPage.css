@@ -1,16 +1,15 @@
 /* SignInPage.css file */
 
 .sign-in-page {
-    padding: 20px;
-    background-image: url('../../images/heroPhoto.jpg');
-    background-size: cover;
-    background-position: center;
-    min-height: 100vh; /* Ensure the background covers the entire viewport height */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
+  padding: 20px;
+  background-image: url("../../images/heroPhoto.jpg");
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh; /* Ensure the background covers the entire viewport height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .sign-in-title {
   font-size: 20px;
@@ -23,18 +22,18 @@
 .sign-in-form {
   width: 300px;
   padding: 20px;
-  background-color: rgba(93, 169, 233, 0.90);
+  background-color: rgba(93, 169, 233, 0.9);
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 1);
   margin: auto;
   margin-top: 50px;
 }
 .first-sign-in-label {
-    display: block;
-    margin-bottom: 0px;
-    margin-top: 10px;
-    font-size: 14px;
-  }
+  display: block;
+  margin-bottom: 0px;
+  margin-top: 10px;
+  font-size: 14px;
+}
 
 .sign-in-label {
   display: block;
@@ -61,22 +60,21 @@
 
 .sign-in-button:hover {
   background-color: #4565a0;
-  
 }
 
 .new-user-text {
-    color: #ffffff;
-    display: inline-block;
-    border: none;
-    margin-left: 20px;
-  }
-  
+  color: #ffffff;
+  display: inline-block;
+  border: none;
+  margin-left: 20px;
+}
+
 .register-link-button {
-    color: #072b6e;
-    border: none;
-    margin-left: 10px;
-    cursor: pointer;
-  }
+  color: #072b6e;
+  border: none;
+  margin-left: 10px;
+  cursor: pointer;
+}
 .register-link-button:hover {
-    color: #3967bc;
-  }
+  color: #3967bc;
+}

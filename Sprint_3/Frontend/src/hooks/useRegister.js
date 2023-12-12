@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function useSignup() {
   const navigate = useNavigate();
-  const API_URL = "http://localhost:5000/user/register";
+  const API_URL = "/user/register";
 
   const signup = async (firstName, lastName, email, password) => {
     try {

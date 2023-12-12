@@ -21,7 +21,10 @@ function App() {
           setIsAuthenticated={setIsAuthenticated}
         />
         <Routes>
-          <Route path="/" element={<Hero />} />
+          <Route
+            path="/"
+            element={<Hero isAuthenticated={isAuthenticated} />}
+          />
           <Route
             path="/register"
             element={<RegisterPage setIsAuthenticated={setIsAuthenticated} />}

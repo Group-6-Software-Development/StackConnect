@@ -4,7 +4,7 @@ import "./styles/SignInPage.css";
 import useField from "../hooks/useField";
 import useLogin from "../hooks/useLogin";
 
-const SignInPage = (setIsAuthenticated) => {
+const SignInPage = ({ setIsAuthenticated }) => {
   const email = useField("email");
   const password = useField("password");
   const { login } = useLogin();

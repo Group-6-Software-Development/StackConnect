@@ -4,7 +4,7 @@
 .form-and-preview-container {
   display: flex;
   flex-direction: column;
-  gap: 20px; /* Optional: Adds some space between the form and the preview */
+  gap: 20px;
 }
 
 @media (min-width: 768px) {
@@ -22,7 +22,6 @@
   margin: 0 auto;
   padding: 20px;
   border-radius: 20px;
-  /*color: #fcfcfc;*/
   box-shadow: 10px 10px 5px lightgrey;
 }
 

@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function useLogin() {
   const navigate = useNavigate();
-  const API_URL = "http://localhost:5000/user/login";
+  const API_URL = "/user/login";
 
   const login = async (object) => {
     try {

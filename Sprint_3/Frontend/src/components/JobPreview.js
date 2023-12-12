@@ -4,7 +4,6 @@ import { useState } from "react";
 import "./styles/jobPreview.css";
 
 const JobPreview = ({
-
   title,
   companyInfo,
   location,
@@ -18,7 +17,6 @@ const JobPreview = ({
   isJobsPage = false,
   isJobPreview = true,
   isExpanded,
-
 }) => {
   const [size, setSize] = useState(isExpanded ? "large" : "small");
 
@@ -72,7 +70,7 @@ const JobPreview = ({
           </p>
         </>
       )}
-      {showApplyButton && !applied &&  (
+      {showApplyButton && !applied && (
         <button className="apply-button" onClick={handleApplyClick}>
           Apply Now!
         </button>

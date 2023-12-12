@@ -45,8 +45,12 @@ const JobsPage = () => {
   };
 
   const handleApplyNowClick = () => {
-    setAppliedJobs((prevAppliedJobs) => new Set([...prevAppliedJobs, selectedJob._id]));
+    setAppliedJobs(
+      (prevAppliedJobs) => new Set([...prevAppliedJobs, selectedJob._id])
+    );
     setApplied(true);
+
+    console.log(selectedJob);
   };
 
   const resetFilter = async () => {
@@ -74,7 +78,11 @@ const JobsPage = () => {
         {filteredJobs.map((job) => (
           <div key={job._id} className="job-card-container">
             <div className="job-card" onClick={() => handleJobClick(job)}>
-              <img src={jobImage} alt={`Logo for ${job.company}`} className="company-logo" />
+              <img
+                src={jobImage}
+                alt={`Logo for ${job.company}`}
+                className="company-logo"
+              />
               <div className="job-details">
                 <h3>{job.company}</h3>
                 <p>{job.title}</p>
@@ -102,8 +110,6 @@ const JobsPage = () => {
       </div>
     </div>
   );
-  
 };
 
 export default JobsPage;
-  
