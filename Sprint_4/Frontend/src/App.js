@@ -33,8 +33,12 @@ function App() {
             path="/sign-in"
             element={<SignInPage setIsAuthenticated={setIsAuthenticated} />}
           />
-          <Route path="/post-job" element={<JobPostPage />} />
-          <Route path="/jobs" element={<JobsPage />} />
+          {isAuthenticated && (
+            <>
+              <Route path="/post-job" element={<JobPostPage />} />
+              <Route path="/jobs" element={<JobsPage />} />
+            </>
+          )}
         </Routes>
         <Footer />
       </BrowserRouter>
