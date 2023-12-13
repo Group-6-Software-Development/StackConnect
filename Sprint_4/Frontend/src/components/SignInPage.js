@@ -12,8 +12,13 @@ const SignInPage = ({ setIsAuthenticated }) => {
   const handleLoginClick = (e) => {
     e.preventDefault();
 
-    login({ email: email.value, password: password.value });
-    setIsAuthenticated(true);
+    try {
+      login(email.value, password.value);
+
+      setIsAuthenticated(true);
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (

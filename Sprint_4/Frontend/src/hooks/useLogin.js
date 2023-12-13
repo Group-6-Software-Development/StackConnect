@@ -4,12 +4,12 @@ export default function useLogin() {
   const navigate = useNavigate();
   const API_URL = "/user/login";
 
-  const login = async (object) => {
+  const login = async (email, password) => {
     try {
       const response = await fetch(API_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(object),
+        body: JSON.stringify({ email, password }),
       });
 
       if (response.ok) {

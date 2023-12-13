@@ -24,13 +24,17 @@ const RegisterPage = ({ setIsAuthenticated }) => {
 
     setError("");
 
-    signup(
-      firstNameField.value,
-      lastNameField.value,
-      emailField.value,
-      passwordField.value
-    );
-    setIsAuthenticated(true);
+    try {
+      signup(
+        firstNameField.value,
+        lastNameField.value,
+        emailField.value,
+        passwordField.value
+      );
+      setIsAuthenticated(true);
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
