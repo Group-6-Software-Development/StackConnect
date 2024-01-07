@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <footer>
       {" "}
-      <strong>{`Copyright © Group Six Industries ${year}`} </strong>{" "}
+      <strong>{`Copyright © Group Six Industries 2023 - ${year}`} </strong>{" "}
     </footer>
   );
 };
