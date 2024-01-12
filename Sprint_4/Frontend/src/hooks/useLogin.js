@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function useLogin() {
   const navigate = useNavigate();
-  const API_URL = "/user/login";
+  const API_URL = "https://stackconnectbe.onrender.com/user/login";
 
   const login = async (email, password) => {
     try {
@@ -31,10 +31,7 @@ export default function useLogin() {
       console.error(err);
       console.log(err.message);
     }
-
-    console.log("login() executed");
   };
 
-  console.log("useLogin() executed");
   return { login };
 }

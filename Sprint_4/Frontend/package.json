@@ -1,5 +1,4 @@
 {
-  "proxy": "https://stackconnectbe.onrender.com/",
   "name": "stack-connect",
   "version": "0.1.0",
   "private": true,
