@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-export default function useLogin({ setIsAuthenticated }) {
+export default function useLogin() {
   const navigate = useNavigate();
   const API_URL = "/user/login";
 
@@ -22,8 +22,6 @@ export default function useLogin({ setIsAuthenticated }) {
 
         console.log("User logged in successfully!");
 
-        setIsAuthenticated(true);
-
         navigate("/jobs");
       } else {
         const error = await response.json();
@@ -39,5 +37,4 @@ export default function useLogin({ setIsAuthenticated }) {
   return {
     login,
   };
-  
 }
