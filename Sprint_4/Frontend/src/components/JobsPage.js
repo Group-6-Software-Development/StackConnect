@@ -20,7 +20,9 @@ const JobsPage = () => {
   useEffect(() => {
     const fetchJobs = async () => {
       try {
-        const response = await fetch("/jobs");
+        const response = await fetch(
+          "https://stackconnectbe.onrender.com/jobs"
+        );
         const data = await response.json();
         setJobs(data);
       } catch (error) {
