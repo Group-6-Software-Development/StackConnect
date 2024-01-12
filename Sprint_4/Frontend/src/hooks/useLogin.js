@@ -15,8 +15,6 @@ export default function useLogin() {
       if (response.ok) {
         const user = await response.json();
 
-        console.log(user);
-
         localStorage.setItem("token", user.token);
         localStorage.setItem("user", JSON.stringify(user));
 
@@ -31,10 +29,12 @@ export default function useLogin() {
       }
     } catch (err) {
       console.error(err);
+      console.log(err.message);
     }
+
+    console.log("login() executed");
   };
 
-  return {
-    login,
-  };
+  console.log("useLogin() executed");
+  return { login };
 }
