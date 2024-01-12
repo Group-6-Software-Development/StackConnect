@@ -7,15 +7,13 @@ import useLogin from "../hooks/useLogin";
 const SignInPage = ({ setIsAuthenticated }) => {
   const email = useField("email");
   const password = useField("password");
-  const { login } = useLogin();
+  const { login } = useLogin({ setIsAuthenticated });
 
   const handleLoginClick = (e) => {
     e.preventDefault();
 
     try {
       login(email.value, password.value);
-
-      setIsAuthenticated(true);
     } catch (err) {
       console.error(err);
     }

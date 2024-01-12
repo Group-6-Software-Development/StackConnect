@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-export default function useLogin() {
+export default function useLogin({ setIsAuthenticated }) {
   const navigate = useNavigate();
   const API_URL = "/user/login";
 
@@ -12,30 +12,30 @@ export default function useLogin() {
         body: JSON.stringify({ email, password }),
       });
 
+      console.log("---------");
+      console.log(response.status);
+      console.log(response.message.json());
       if (response.ok) {
-        // Check if the response has content before parsing as JSON
-        const contentType = response.headers.get("content-type");
-        if (contentType && contentType.includes("application/json")) {
-          const user = await response.json();
+        const user = await response.json();
 
-          localStorage.setItem("token", user.token);
-          localStorage.setItem("user", JSON.stringify(user));
+        localStorage.setItem("token", user.token);
+        localStorage.setItem("user", JSON.stringify(user));
 
-          console.log("User logged in successfully!");
+        console.log("User logged in successfully!");
 
-          navigate("/jobs");
-        } else {
-          console.error("Empty or non-JSON response");
-        }
+        setIsAuthenticated(true);
+
+        navigate("/jobs");
       } else {
-        // Handle non-ok response
         const error = await response.json();
 
         alert(error.message);
-        console.error("Login failed");
+        console.error("Signup failed");
       }
     } catch (err) {
       console.error(err);
     }
   };
+
+  return { login };
 }
