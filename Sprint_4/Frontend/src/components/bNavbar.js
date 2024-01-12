@@ -64,9 +64,14 @@ const BNavbar = ({ isAuthenticated, setIsAuthenticated }) => {
           <Nav className="ms-auto">
             {isAuthenticated && (
               <>
-                <Nav.Link to="/jobs">Jobs</Nav.Link>
-                <Nav.Link to="/post-job">Post a Job</Nav.Link>
+                <Nav.Link as={Link} to="/jobs">
+                  Jobs
+                </Nav.Link>
+                <Nav.Link as={Link} to="/post-job">
+                  Post a Job
+                </Nav.Link>
                 <Nav.Link
+                  as={Link}
                   to="/sign-in"
                   onClick={() => {
                     localStorage.removeItem("user");
@@ -80,8 +85,12 @@ const BNavbar = ({ isAuthenticated, setIsAuthenticated }) => {
             )}
             {!isAuthenticated && (
               <>
-                <Nav.Link to="/sign-in">Sign In</Nav.Link>
-                <Nav.Link to="/register">Register</Nav.Link>
+                <Nav.Link as={Link} to="/sign-in">
+                  Sign In
+                </Nav.Link>
+                <Nav.Link as={Link} to="/register">
+                  Register
+                </Nav.Link>
               </>
             )}
           </Nav>
