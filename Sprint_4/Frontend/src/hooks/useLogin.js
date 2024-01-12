@@ -12,11 +12,10 @@ export default function useLogin({ setIsAuthenticated }) {
         body: JSON.stringify({ email, password }),
       });
 
-      console.log("---------");
-      console.log(response.status);
-      console.log(response.message.json());
       if (response.ok) {
         const user = await response.json();
+
+        console.log(user);
 
         localStorage.setItem("token", user.token);
         localStorage.setItem("user", JSON.stringify(user));
