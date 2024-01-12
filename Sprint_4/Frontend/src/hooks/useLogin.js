@@ -13,24 +13,29 @@ export default function useLogin() {
       });
 
       if (response.ok) {
-        const user = await response.json();
+        // Check if the response has content before parsing as JSON
+        const contentType = response.headers.get("content-type");
+        if (contentType && contentType.includes("application/json")) {
+          const user = await response.json();
 
-        localStorage.setItem("token", user.token);
-        localStorage.setItem("user", JSON.stringify(user));
+          localStorage.setItem("token", user.token);
+          localStorage.setItem("user", JSON.stringify(user));
 
-        console.log("User logged in successfully!");
+          console.log("User logged in successfully!");
 
-        navigate("/jobs");
+          navigate("/jobs");
+        } else {
+          console.error("Empty or non-JSON response");
+        }
       } else {
+        // Handle non-ok response
         const error = await response.json();
 
         alert(error.message);
-        console.error("Signup failed");
+        console.error("Login failed");
       }
     } catch (err) {
       console.error(err);
     }
   };
-
-  return { login };
 }
